@@ -1,0 +1,91 @@
+public int[] threeSum(int[] nums, int target) {
+    // TODO: implement this function.
+    int[] result= new int [3]; 
+    if(nums.length<3)//审题，题目如果没说所给数组长度，要考虑无解情况
+    {
+    	return nums;
+    }
+    Arrays.sort(nums);//审题看数组是否已经排序
+    for(int i = 0; i < nums.length-2; i++)
+    {
+    	new_tar = target - nums[i];
+    	int first = i+1;
+    	int second = nums.length - 1;
+    	while(first < second)
+    	{
+    		if(nums[first]+nums[second]== new_tar)
+    		{
+    			result[0] = nums[i];
+    			result[1] = nums[first];
+    			result[2] = nums[second];
+    			return result;
+    		}
+    		else if (nums[first]+nums[second]<new_tar)
+    		{
+    			first++;
+    		}
+    		else second--;
+    	}
+
+    }
+    return result;
+}
+
+
+
+Summary for k-Sum
+Sort.
+Try first number, use (k-1)-Sum.
+
+Time Complexity
+
+2-Sum: O(nlogn) + O(n) = O(nlogn)
+3-Sum: O(nlogn) + O(n^2) = O(n^2)
+4-Sum: O(nlogn) + O(n^3) = O(n^3)
+k-Sum: O(nlogn) + O(n^(k-1)) = O(n^(k-1))
+
+public void reverseArray(int[] nums) {
+    // TODO: implement this function.
+    int first = 0;
+    int second = nums.length-1;
+    while(first<second)
+    {
+        swap(nums[first], nums[second]);
+        first++;
+        second--;
+    }
+    int swap(int a, int b){
+        int c;
+        c=a;
+        a=b;
+        b=c;
+        return a,b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

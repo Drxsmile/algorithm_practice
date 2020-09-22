@@ -1,0 +1,143 @@
+public void oddEvenSort(int[] nums) {
+    // TODO: implement this function. After sorting,
+    //    nums should start with odd numbers and then even numbers.
+    int first = 0;
+    int second = nums.length - 1;
+    while(first < second)
+    {
+    	while(nums[first]%2 == 1 && first<second) first++;
+    	while(nums[second]%2 == 0  && first<second) second--;
+    	if(first < second)
+    	swap(nums, fisrt++, second--);
+
+    }
+
+}
+private void swap(int[] nums, int a, int b){
+	int c = nums[a];
+	nums[a]= nums[b];
+	nums[b]= c;
+}
+
+public void pivotSort(int[] nums, int pivot) {
+    // TODO: implement this function.
+    int left = 0;
+    int right = nums.length-1;
+    while(left < right)
+    {
+    	while(left<right && nums[left]<=pivot) left++;
+    	while(left<right && nums[right]> pivot) right--;
+    	if(left<right) swap(nums, left++, right--);
+
+    }
+
+}
+
+public int removeElement(int[] nums, int val) {
+    // TODO: implement this function. After removing,
+    //    nums should contain only instances which
+    //    is not equal to val (from 0 to new length).
+    int left= 0;
+    int right = nums.length-1;
+    int len = nums.length;
+    while(left < right)
+    {
+    	while(nums[left]!= val && left < right) left++;
+    	while(nums[right]== val && left < right) right--;
+    	if (left < right)
+    	{
+    		swap(nums, left++, right--);
+    		len--;
+    	}
+    }
+    return len;
+}
+
+public int[] merge(int[] nums1, int[] nums2){
+	int[] nums = new int[nums1.length+nums2.length];
+	int p1 = 0;
+	int p2 = 0;
+	int p = 0;
+	while(p<nums.length)
+	{
+		if(nums1[p1]<nums2[p2])
+		{
+			nums[p++]= nums1[p1];
+			if(p1<nums1.length-1) p1++;
+		}
+		else
+		{
+			nums[p++]= nums1[p2];
+			if(p2<nums2.length-1) p2++;
+		}
+
+	}
+	return nums;
+}
+
+public int[] mergeElement(int[] arr1, int[] arr2) {
+    int[] result = new int[arr1.length + arr2.length];
+    int index = 0, index1 = 0, index2 = 0;
+    while (index1 < arr1.length && index2 < arr2.length) {
+        if (arr1[index1] < arr2[index2]) {
+            result[index++] = arr1[index1++];
+        } else {
+            result[index++] = arr2[index2++];
+        }
+    }
+    for (int i = index1; i < arr1.length; i++) {
+        result[index++] = arr1[i];
+    }
+    for (int i = index2; i < arr2.length; i++) {
+        result[index++] = arr2[i];
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
