@@ -7,9 +7,14 @@ class CombineTest{
 		int[] nums = {2, 6, 8};
 		Arrays.sort(nums);
 		List<List<Integer>> results = new ArrayList<>();
-		for(int k = 0; k <= nums.length; k++){
-			combine(nums, k, new ArrayList<Integer>(), results);
-		}
+		// Solution 1
+		// for(int k = 0; k <= nums.length; k++){
+		// 	combine(nums, k, new ArrayList<Integer>(), results);
+		// }
+		// Solution 2
+		// com(nums, 0, new ArrayList<Integer>(), results);
+		//Solution 3
+		combination(results, nums, 0, new ArrayList<Integer>());
 		System.out.println(results);
 	}
 
@@ -31,4 +36,42 @@ class CombineTest{
 		}
 	}
 
+	public static void com(int[] nums, int index, 
+		ArrayList<Integer> cur, List<List<Integer>> results){
+		// base case
+		if(index == nums.length){
+			results.add(new ArrayList<Integer>(cur));
+			return;
+		}
+
+		// recursion
+		com(nums, index +1, cur, results);
+		cur.add(nums[index]);
+		com(nums, index +1, cur, results);
+		cur.remove(cur.size()-1);
+	}
+
+	public static void combination(List<List<Integer>> results, 
+                        int[] nums, int index,
+                        ArrayList<Integer> items) {
+	    if (index == nums.length) {
+	      results.add(new ArrayList<Integer>(items));
+	      return;
+	    }
+	    for (int i = index; i < nums.length; i++) {
+	      items.add(nums[i]);
+	      combination(results, nums, i+1, items);
+	      items.remove(items.size()-1);
+	    }
+	    combination(results, nums, nums.length, items);
+	}
+
 }
+
+
+
+
+
+
+
+
