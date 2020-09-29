@@ -13,7 +13,7 @@ class CombineTest{
 		// }
 		// Solution 2
 		// com(nums, 0, new ArrayList<Integer>(), results);
-		//Solution 3
+		//Solution 3 can't get it,why? related to tree
 		combination(results, nums, 0, new ArrayList<Integer>());
 		System.out.println(results);
 	}
