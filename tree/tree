@@ -35,4 +35,5 @@ A B C D E F G H I J []
 对每层计数 count = queue.size()
 
 **solution 4**
-dfs
+dfs，记录level，把同一level的放入对应index的list里
+
