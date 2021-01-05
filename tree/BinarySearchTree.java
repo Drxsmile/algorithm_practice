@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import jdk.nashorn.api.tree.Tree;
-
 public class BinarySearchTree {
 	TreeNode root;
 
@@ -67,13 +65,28 @@ public class BinarySearchTree {
 		}
 		TreeNode node = root;
 		while (node != null) {
-			if (node.val > val && node.left != null) {
-				node = node.left;
-			} else if (node.val < val && node.right != null) {
-				node = node.right;
-			} else if (node.val == val) {
-				node = removeNode(node);
-				return true;
+			if (node.val > val) {
+				if (node.left == null) {
+					System.out.println("node[" + val + "] doesn't exist");
+					return false;
+				} else {
+					if (node.left.val == val) {
+						node.left = removeNode(node.left);
+						return true;
+					} else
+						node = node.left;
+				}
+			} else {
+				if (node.right == null) {
+					System.out.println("node[" + val + "] doesn't exist");
+					return false;
+				} else {
+					if (node.right.val == val) {
+						node.right = removeNode(node.right);
+						return true;
+					} else
+						node = node.right;
+				}
 			}
 		}
 		return false;

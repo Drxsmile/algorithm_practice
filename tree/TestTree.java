@@ -50,11 +50,18 @@ public class TestTree {
         TreeNode p = stringToTreeNode("[10,5,11,2,7,6,12]");
         BinarySearchTree bst = new BinarySearchTree(p);
         System.out.println(bst.traversal(p));
-        TreeNode res = bst.find(p, 2);
-        System.out.println("find: " + res);
-        TreeNode a1 = bst.add(p, 10);
-        TreeNode a2 = bst.add(p, 12);
-        TreeNode a3 = bst.add(p, 8);
+        // TreeNode res = bst.find(p, 2);
+        // System.out.println("find: " + res);
+        // TreeNode a1 = bst.add(p, 10);
+        // TreeNode a2 = bst.add(p, 12);
+        bst.add(p, 8);
+        bst.add(p, 1);
+        bst.add(p, 3);
+        bst.add(p, 9);
+        bst.add(p, 14);
+        bst.add(p, 15);
+        System.out.println(bst.traversal(p));
+        System.out.println(bst.remove(p, 10));
         System.out.println(bst.traversal(p));
     }
 }

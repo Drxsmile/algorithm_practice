@@ -97,10 +97,10 @@ all subtrees are binary search tree
 if we have duplicates, we can add a parameter "count" in the TreeNode
 
 ### functions
-
+n节点数量，logn 树的高度
 - add   time complexity: o(logn)
 
-- remove 
+- remove  time complexity: o(logn)
 1. 叶子
 直接删就行
 2. 有一个child
@@ -113,8 +113,9 @@ if we have duplicates, we can add a parameter "count" in the TreeNode
 用recursion耗费空间，不断调用函数放到栈里，可以用while写
 
 
-
-
+## 红黑树
+Red-Black Tree, R-B tree
+a balanced binary search tree
 
 
 
