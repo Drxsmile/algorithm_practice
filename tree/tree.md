@@ -84,6 +84,10 @@ left.right 对称 right.left;
 
 回溯
 
+### [Binary Tree Right Side View](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
+
+需要每层最右边的元素，可以先遍历root，然后右子树，左子树
+
 ## binary search tree
 
 ### features
