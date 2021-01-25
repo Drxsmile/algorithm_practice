@@ -14,6 +14,7 @@ levelOrder
 
 1. why use queue?How does the queue keep order?
    e.g. the binary tree in the ppt
+   ```
    [A]
    A [B C]
    A B [C D E]
@@ -25,6 +26,7 @@ levelOrder
    A B C D E F G H [I J]
    A B C D E F G H I [J]
    A B C D E F G H I J []
+```
 
 
 
@@ -87,6 +89,14 @@ left.right 对称 right.left;
 ### [Binary Tree Right Side View](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
 
 需要每层最右边的元素，可以先遍历root，然后右子树，左子树
+
+### Binary Tree Maximum Path Sum
+二叉树里任意2点可以构成一条路径，或者单独一个点，所以有
+${n}\choose {1}$ + ${n}\choose {2}$ = ${n(n+1)} \over 2$个情况
+
+数量太大，要简化
+
+
 
 ## binary search tree
 
