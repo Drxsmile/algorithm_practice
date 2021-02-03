@@ -96,7 +96,9 @@ ${n}\choose {1}$ + ${n}\choose {2}$ = ${n(n+1)} \over 2$个情况
 
 数量太大，要简化
 
-
+### Find Leaves of Binary Tree
+res.get(level).add(root.val);
+遍历求高度顺便加了叶子节点的值
 
 ## binary search tree
 
