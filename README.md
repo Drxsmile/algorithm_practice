@@ -235,12 +235,12 @@ LinkedList:
 
 
 ​	
-	getFirst();.//获取但不移除，如果链表为空，抛出NoSuchElementException.
-	getLast();
-	jdk1.6
-	peekFirst();//获取但不移除，如果链表为空，返回null.
-	peekLast():
-	
+​	getFirst();.//获取但不移除，如果链表为空，抛出NoSuchElementException.
+​	getLast();
+​	jdk1.6
+​	peekFirst();//获取但不移除，如果链表为空，返回null.
+​	peekLast():
+​	
 	removeFirst();//获取并移除，如果链表为空，抛出NoSuchElementException.
 	removeLast();
 	jdk1.6
@@ -299,8 +299,8 @@ Set:元素不可以重复，是无序。
 ​		
 ​		
 ​		
-	|--TreeSet:可以对Set集合中的元素进行排序。是不同步的。 
-				
+​	|--TreeSet:可以对Set集合中的元素进行排序。是不同步的。 
+​				
 				TreeSet的add方法内部最终实现：
 				需要将元素转成Comparable类型，因为这个类型具有排序的能力
 				Comparable类型专门为排序提供了compareTo方法
@@ -539,3 +539,12 @@ class MyCollections{
 
 }
 }
+
+
+
+
+
+
+
+![image-20210203223134802](/Users/s/Library/Application%20Support/typora-user-images/image-20210203223134802.png)
+

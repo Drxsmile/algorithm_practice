@@ -76,7 +76,11 @@ public class App {
                 }
             }
         }
-
+        printArray(grid);
+        System.out.println();
+        printArray(reach);
+        System.out.println();
+        printArray(distance);
         int shortest = Integer.MAX_VALUE;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -129,30 +133,38 @@ public class App {
         }
         return res;
     }
-
+    public static void printArray(int[][] arr){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
     /****************************** 结束写代码 ******************************/
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+//        Scanner in = new Scanner(System.in);
+
+//        int _grid_rows = 0;
+//        int _grid_cols = 0;
+//        _grid_rows = Integer.parseInt(in.nextLine().trim());
+//        _grid_cols = Integer.parseInt(in.nextLine().trim());
+//
+//        int[][] _grid = new int[_grid_rows][_grid_cols];
+//        for (int _grid_i = 0; _grid_i < _grid_rows; _grid_i++) {
+//            for (int _grid_j = 0; _grid_j < _grid_cols; _grid_j++) {
+//                _grid[_grid_i][_grid_j] = in.nextInt();
+//
+//            }
+//        }
+//
+//        if (in.hasNextLine()) {
+//            in.nextLine();
+//        }
+
         int res;
-
-        int _grid_rows = 0;
-        int _grid_cols = 0;
-        _grid_rows = Integer.parseInt(in.nextLine().trim());
-        _grid_cols = Integer.parseInt(in.nextLine().trim());
-
-        int[][] _grid = new int[_grid_rows][_grid_cols];
-        for (int _grid_i = 0; _grid_i < _grid_rows; _grid_i++) {
-            for (int _grid_j = 0; _grid_j < _grid_cols; _grid_j++) {
-                _grid[_grid_i][_grid_j] = in.nextInt();
-
-            }
-        }
-
-        if (in.hasNextLine()) {
-            in.nextLine();
-        }
-
+        int[][] _grid = {{1,0,2,0,1},{0,0,0,0,0},{0,0,1,0,0}};
         res = shortestDistance(_grid);
         System.out.println(String.valueOf(res));
 
