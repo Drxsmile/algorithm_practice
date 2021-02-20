@@ -10,8 +10,19 @@ public class App {
         System.out.println(res);
         System.out.println("Hello, World!");
     }
-
-    public static int knapsack(int capacity, int[] weights, int[] values) {
+    public static int knapsack(int cap, int[] weights, int[] values){
+        int index = weights.length;
+        if(index == 0 || index != values.length || cap == 0) return -1;
+        int[] dp = new int[cap + 1];
+        for (int i = 0; i < index; i++) {
+            for (int w = cap; w >= weights[i]; w--) {
+                int m = w - weights[i];
+                dp[w] = Math.max(dp[w], dp[m] + values[i]);
+            }
+        }
+        return dp[cap];
+    }
+    public static int knapsack1(int capacity, int[] weights, int[] values) {
         int length = weights.length;
         if (capacity == 0 || length == 0)
             return 0;
@@ -29,6 +40,7 @@ public class App {
                 }
             }
         }
+        printDp(w);
         return w[length][capacity];
     }
 
@@ -36,22 +48,36 @@ public class App {
         int index = weights.length;
         if (cap == 0 || index == 0 || values.length != index)
             return 0;
-        int[][] dp = new int[index][cap + 1];
+        int[][] dp = new int[index + 1][cap + 1];
         for (int i = 0; i < index; i++) {
             dp[i][0] = 0;
         }
         for (int i = 1; i <= cap; i++) {
             dp[0][i] = 0;
         }
-        for (int i = 1; i < index; i++) {
+        for (int i = 1; i <= index; i++) {
             for (int j = 1; j <= cap; j++) {
                 dp[i][j] = dp[i - 1][j];
-                int reserve = j - weights[i];
+                int reserve = j - weights[i - 1];
                 if (reserve >= 0) {
-                    dp[i][j] = Math.max(dp[i - 1][reserve] + values[i], dp[i][j]);
+                    dp[i][j] = Math.max(dp[i - 1][reserve] + values[i - 1], dp[i][j]);
                 }
             }
         }
-        return dp[index - 1][cap];
+        printDp(dp);
+        return dp[index][cap];
     }
+    public static void printDp(int[][] dp){
+        int row = dp.length;
+        int col = dp[0].length;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(dp[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
 }
+
