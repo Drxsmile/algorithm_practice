@@ -104,6 +104,11 @@ public class BinarySearchTree {
 		} else {
 			TreeNode cur = node;
 			TreeNode res = cur.left;
+			if (res.right == null) {
+				node.val = res.val;
+				cur.left = res.left;
+				return node;
+			}
 			while (res.right != null) {
 				cur = res;
 				res = res.right;
