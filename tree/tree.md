@@ -33,6 +33,7 @@ levelOrder
    A B C D E F G H [I J]
    A B C D E F G H I [J]
    A B C D E F G H I J []
+   ```
 ```
 
 
@@ -45,7 +46,7 @@ levelOrder
    ```java
    q1 = q2;
    q2 = new LinkedList();
-   ```
+```
 
    **solution 2**
    上一层和下一层之间放一个null
@@ -142,5 +143,19 @@ a balanced binary search tree
 
 
 
+## Trie
 
+### 时间复杂度
+
+- 如果一个word的长度为l，trie的时间复杂度为O(l)
+
+- 如果是二分查找，长度为l的单词最多可能有26^l^个，一般情况下肯定是多于2^l^个，所以时间复杂度一般大于O(log 2^l^) =  O(l)；
+
+
+
+
+
+## Ternary Search Tree
+
+是如何存储一个单词的？
 
