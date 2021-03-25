@@ -158,4 +158,3 @@ a balanced binary search tree
 ## Ternary Search Tree
 
 是如何存储一个单词的？
-
