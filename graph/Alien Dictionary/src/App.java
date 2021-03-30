@@ -40,7 +40,7 @@ public class App {
                 if (c != d) {
                     HashSet<Character> hs = graph.get(c);
                     hs.add(d);
-                    graph.put(c, hs);
+                    // graph.put(c, hs);
                     inDegree.put(d, inDegree.get(d) + 1);
                     break;
                 }
