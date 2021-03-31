@@ -45,3 +45,12 @@ List<neighbors的index>
 - 循环
 
 
+
+## 做题步骤
+
+1. 构建临接表（和degree表），先把点+空的list加进去
+2. 遍历边，填充临接表（+ degree表）
+3. bfs遍历 + topological sort
+
+
+
