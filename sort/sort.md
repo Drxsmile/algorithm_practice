@@ -1,0 +1,84 @@
+# sort
+
+## O($n^2$)
+1. bubble sort
+- 每一轮相邻元素比较
+- optimization      
+(1)如果有一轮没有元素交换，说明排序完成     
+(2)记录最后一次交换元素的位置，设置为下一次遍历的终点
+- time complexity
+best:
+average:
+worst:
+- stability
+stable
+- in place
+
+2. insertion sort
+- 分为已排序和未排序2个区间
+- 第一个元素为已排序，后面的元素依次插入到已排序的区间里   
+- time complexity
+best:
+average:
+worst:
+- stability
+stable
+- in place
+
+1. selection sort
+- 分为已排序和未排序2个区间
+- 在未排序的区间找到最小的，与区间交点交换，扩展已排序的区间  
+- time complexity
+best:
+average:
+worst:
+- stability
+unstable
+- in place
+
+
+## O($nlog^n$)
+
+1. quick sort    
+- worst: O($n^2$)
+- average: O($nlog^n$)    
+- 平均来说，树的高度是$log^n$；最坏退化成链表，高度为$n$；每一层处理时间都为O($n$)    
+
+
+如果要保证O($nlog^n$)，用下面2种
+1. merge sort
+2. heap sort
+
+
+
+## O($n$)
+1. bucket sort
+2. count sort
+3. radix sort
+
+## Compare
+
+1. 参数：Object o1, Object o2
+2. 原理：按照权重升序排序，权重大的排在后面
+- \>0前面权重大（排序后：o2, o1）
+- <0后面权重大（排序后：o1, o2）
+3. 常见应用场景之数字排序
+- 数值升序   
+```
+// 给数值大的赋予大权重
+if(o1 > o2) return 1;
+if(o1 == o2) return 0;
+if(o1 < o2) return -1;
+```
+等价简洁写法
+`return o1 - o2;`
+
+- 数值降序   
+```
+// 给数值小的赋予大权重
+if(o1 > o2) return -1;
+if(o1 == o2) return 0;
+if(o1 < o2) return 1;
+```
+等价简洁写法
+`return o2 - o1;`
