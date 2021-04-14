@@ -82,3 +82,66 @@ if(o1 < o2) return 1;
 ```
 等价简洁写法
 `return o2 - o1;`
+
+
+
+## quick select
+
+1. 2-way partition
+
+pivot如果选在左边，注意记录nums[left]，不然换完值就变了，难怪用nums[right] 
+
+// to do
+
+[left, j) <= pivot
+
+[j, right] > pivot
+
+```java
+public void partition(nums, left, right){
+  	int j = left + 1;
+		for(int i = left + 1; i <= right; i++){
+			  if(nums[i] <= nums[right]){
+      			swap(nums, i, j++);
+    		}
+		}
+}
+```
+
+
+
+2. 3-way partition
+
+```java
+pu void quickSelect(int[] nums, int left, int right){
+        // [left, less) < pivot
+        // [less, more) == pivot
+        // [more, right] > pivot
+        int pivot = nums[left];
+        int less = left;
+        int more = less + 1;
+        for(int i = left + 1; i <= right; i++){
+            if(nums[i] < pivot){
+                swap(nums, less, i);
+                less++;
+                swap(nums, more, i);
+                more++;
+            }else if(nums[i] == pivot){
+                swap(nums, more, i);
+                more++;
+            }
+        }
+        int mid = (nums.length - 1) / 2;
+        if(mid < less){
+            quickSelect(nums, left, --less);
+        }else if(mid >= more){
+            quickSelect(nums, more, right);
+        }
+    }
+```
+
+迭代的话就while(true){
+
+​	改端点的值
+
+}
