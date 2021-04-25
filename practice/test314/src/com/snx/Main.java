@@ -12,12 +12,15 @@ public class Main {
  */
 
 // Frugal Fulfillment
-// A customer order has an ItemID, a desired quantity, a minimum delivery speed, and a shipping location. PickerService takes in ItemID and return a list of warehouses with their available quantity of that item. PricingService returns a cost given an ItemID, quantity, warehouse, delivery speed, and shipping location.  Can you write me code to find the cheapest way to fulfill an order?
-
+// A customer order has an ItemID, a desired quantity, a minimum delivery speed, and a shipping location.
+// PickerService takes in ItemID and return a list of warehouses with their available quantity of that item.
+// PricingService returns a cost given an ItemID, quantity, warehouse, delivery speed, and shipping location.
+// Can you write me code to find the cheapest way to fulfill an order?
+/*
 A, B, C
-        a  a  a
-        3  20 50
-
+a  a  a
+3  20 50
+*/
 
 
         C1: a - 7 -> 5 deliver (addr)...
@@ -49,18 +52,25 @@ class Warehouse{
 
 }
     public int minimumCost(CustomerOrder order){
-        List<Warehouse> list = pickerService(order.id);
-        int min = Integer.MAX_VALUE;
-        for(int i = 0; i < list.size(); i++){
-            Warehouse w = list.get(i);
-            if(w.quantity >= num){
-                int cost = pricingService(id, num, w.id, sla, loc);
-                min = Math.min(min, cost);
-            }else{
-
+        List<Warehouse> list = pickerService(order.itemId);
+//        int min = Integer.MAX_VALUE;
+//        for(int i = 0; i < list.size(); i++){
+//            Warehouse w = list.get(i);
+//            if(w.quantity >= num){
+//                int cost = pricingService(id, num, w.id, sla, loc);
+//                min = Math.min(min, cost);
+//            }else{
+//
+//            }
+//        }
+        int[] dp = new int[order.quantity + 1];
+        // dp[i][q] = min(dp[i - 1][q], dp[i][q - 1] + cost[i]);
+        // dp[q] = min(dp[q], dp[q - 1] + cost[i]);
+        for(Warehouse wh : list){
+            for(int q = 0; q <= order.quantity; q++){
+                if(wh.quantity >)
             }
         }
-
 
 
         return min;

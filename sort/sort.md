@@ -46,8 +46,54 @@ unstable
 
 
 如果要保证O($nlog^n$)，用下面2种
-1. merge sort
-2. heap sort
+2. merge sort
+
+3. heap sort
+
+   完全二叉树，用数组存储，利用父子节点的index关系
+
+- 构造大根堆（从最后一个叶子节点的爸爸开始下沉排序）
+- 把堆顶和数组最后一个数交换（堆顶弹出，堆size-1）
+- 堆顶下沉排序
+
+```java
+public int[] sortArray(int[] nums) {
+        //heapify
+        for(int i = (nums.length - 2) / 2; i >= 0; i--){
+            siftDown(nums, i, nums.length - 1);
+        }
+        // sort
+        for(int i = nums.length - 1; i > 0; i--){
+            swap(nums, i, 0);
+            siftDown(nums, 0, i - 1);
+        }
+        return nums;
+    }
+    public void swap(int[] nums, int i, int j){
+        nums[i] ^= nums[j];
+        nums[j] ^= nums[i];
+        nums[i] ^= nums[j];
+    }
+    public void siftDown(int[] nums, int cur, int end){
+        while(2 * cur + 1 <= end){// 有左宝宝
+            if(2 * cur + 2 <= end){
+                if(nums[2 * cur + 2] >= nums[2 * cur + 1] && nums[2 * cur + 2] > nums[cur]){
+                    swap(nums, cur, 2 * cur + 2);
+                    cur = 2 * cur + 2;
+                }else if(nums[2 * cur + 2] < nums[2 * cur + 1] && nums[2 * cur + 1] > nums[cur]){
+                    swap(nums, cur, 2 * cur + 1);
+                    cur = 2 * cur + 1;
+                }else return;
+            }else{
+                if(nums[2 * cur + 1] > nums[cur]){
+                    swap(nums, cur, 2 * cur + 1);
+                    cur = 2 * cur + 1;
+                }else return;
+            }
+
+        }
+    }
+```
 
 
 
