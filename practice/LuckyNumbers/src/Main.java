@@ -39,7 +39,20 @@ public class Main {
             if(num.charAt(index) == '0') break;
         }
     }
-    /******************************结束写代码******************************/
+
+    static void recursion2(ArrayList<String> res, String path, String num, int index, int target, long cur, long pre, String operator){
+        if(index == num.length()){
+            if(cur == target){
+                res.add(path);
+            }
+            return;
+        }
+        for (int i = index; i < num.length(); i++) {
+            
+        }
+    }
+
+        /******************************结束写代码******************************/
 
 
     public static void main(String[] args){
